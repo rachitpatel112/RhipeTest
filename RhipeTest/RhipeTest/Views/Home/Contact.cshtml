@@ -1,0 +1,50 @@
+﻿@using RhipeTest.Helpers
+@{
+    ViewData["Title"] = "Contact";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div>
+    Draw a(n)
+    @Html.DropDownList("Shapes", LookUps.Shapes(), "Please Select", new { @id = "Shapes", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })    with a(n)
+    @Html.DropDownList("Measurements", LookUps.Measurements(), "Please Select", new { @id = "Measurements1", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })      of
+    @Html.DropDownList("Amounts", LookUps.Amounts(), "Please Select", new { @id = "Amounts1", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })    (and a(n)
+    @Html.DropDownList("Measurements", LookUps.Measurements(), "Please Select", new { @id = "Measurements2", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })    of
+    @Html.DropDownList("Amounts", LookUps.Amounts(), "Please Select", new { @id = "Amounts2", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" }))
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/site.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        DrawTriangle();
+    });
+    function DrawTriangle() {
+        var shape = $('#Shapes').val();
+        var measurements1 = $('#Measurements1').val();
+        var amounts1 = $('#Amounts1').val();
+        var measurements2 = $('#Measurements2').val();
+        var amounts2 = $('#Amounts2').val();
+        DrawShape(shape, measurements1, amounts1, measurements2, amounts2);
+    }
+    function DrawShape(shape, measurements1, amounts1, measurements2, amounts2) {
+        $.ajax({
+            url: '@Url.Action("ValidateShape", "Home")',
+            type: "POST",
+            data: AddAntiForgeryToken({ shape: shape, measurements1: measurements1, amounts1: amounts1, measurements2: measurements2, amounts2: amounts2}),
+            success: function (result) {
+                if (result.errorMessage) {
+                    NotifyError(result.errorMessage);
+                } else {
+                   // Draw();
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                NotifyError(errorThrown);
+            }
+        });
+	}
+
+</script>
+

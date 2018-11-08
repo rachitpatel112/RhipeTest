@@ -1,0 +1,11 @@
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\bin\Debug\netcoreapp2.0\RhipeTest.deps.json
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\bin\Debug\netcoreapp2.0\RhipeTest.runtimeconfig.json
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\bin\Debug\netcoreapp2.0\RhipeTest.runtimeconfig.dev.json
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\bin\Debug\netcoreapp2.0\RhipeTest.dll
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\bin\Debug\netcoreapp2.0\RhipeTest.pdb
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\obj\Debug\netcoreapp2.0\RhipeTest.csprojAssemblyReference.cache
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\obj\Debug\netcoreapp2.0\RhipeTest.csproj.CoreCompileInputs.cache
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\obj\Debug\netcoreapp2.0\RhipeTest.AssemblyInfoInputs.cache
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\obj\Debug\netcoreapp2.0\RhipeTest.AssemblyInfo.cs
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\obj\Debug\netcoreapp2.0\RhipeTest.dll
+c:\users\rxp292\source\repos\RhipeTest\RhipeTest\obj\Debug\netcoreapp2.0\RhipeTest.pdb
