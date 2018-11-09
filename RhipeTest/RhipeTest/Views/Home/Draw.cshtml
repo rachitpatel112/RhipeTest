@@ -1,0 +1,146 @@
+﻿@using RhipeTest.Helpers
+@{
+    ViewData["Title"] = "Draw Triangle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="row">
+    <div class="col-sm-4">
+        Draw a(n)
+        @Html.DropDownList("Shapes", LookUps.Shapes(), "Please Select", new { @id = "Shapes", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })    with a(n)
+        @Html.DropDownList("Measurements", LookUps.Measurements(), "Please Select", new { @id = "Measurements1", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })      of
+        @Html.DropDownList("Size", LookUps.Size(), "Please Select", new { @id = "Size1", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })
+    </div>
+    <div class="col-sm-4" style="display:none" id="div2">
+        (and a(n)
+        @Html.DropDownList("Measurements", LookUps.Measurements(), "Please Select", new { @id = "Measurements2", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })    of
+        @Html.DropDownList("Size", LookUps.Size(), "Please Select", new { @id = "Size2", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" }))
+    </div>
+    <div class="col-sm-4" style="display:none" id="div3">
+        and a(n)
+        @Html.DropDownList("Measurements", LookUps.Measurements(), "Please Select", new { @id = "Measurements3", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })    of
+        @Html.DropDownList("Size", LookUps.Size(), "Please Select", new { @id = "Size3", @class = "form-control select2", @onchange = "DrawTriangle(this.value)" })
+    </div>
+</div>
+<div id="canvasDiv" class="row">
+    <canvas id="canvas"></canvas>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/site.js"></script>
+<script src="~/js/toastr.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="~/css/main.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        DrawTriangle();
+    });    
+    function DrawTriangle() {
+        var shape = $('#Shapes').val();
+        var measurements1 = $('#Measurements1').val();
+        var size1 = $('#Size1').val();
+        var measurements2 = $('#Measurements2').val();
+        var size2 = $('#Size2').val();
+        var measurements3 = $('#Measurements3').val();
+        var size3 = $('#Size3').val();
+
+        if (shape == "IT") {
+            $('#div2').show();
+            $('#div3').hide();
+        }
+        else if (shape == "ST") {
+            $('#div2').show();
+            $('#div3').show();
+        } else {
+            $('#div2').hide();
+            $('#div3').hide();
+        }
+        $('#canvas').hide();
+        if (shape == "ET" && measurements1 != "" && size1 != "") {
+            DrawShape(shape, measurements1, size1, measurements2, size2, measurements3, size3);
+            $('#canvas').show();
+        }
+        else if (shape == "IT" && measurements1 != "" && size1 != "" && measurements2 != "" && size2 != "") {
+            DrawShape(shape, measurements1, size1, measurements2, size2, measurements3, size3);
+            $('#canvas').show();
+        }
+        else if (shape == "ST" && measurements1 != "" && size1 != "" && measurements2 != "" && size2 != "" && measurements3 != "" && size3 != "") {
+            DrawShape(shape, measurements1, size1, measurements2, size2, measurements3, size3);
+            $('#canvas').show();
+        }
+    }
+    function DrawShape(shape, measurements1, size1, measurements2, size2, measurements3, size3) {
+        $.ajax({
+            url: '@Url.Action("ValidateShape", "Home")',
+            type: "POST",
+            data: AddAntiForgeryToken({ shape: shape, measurements1: measurements1, size1: size1, measurements2: measurements2, size2: size2, measurements3: measurements3, size3: size3}),
+            success: function (result) {
+                if (result.errorMessage) {
+                    $('#canvas').hide();
+                    NotifyError(result.errorMessage);
+                }
+                else
+                {   
+
+                    $('#canvasDiv').html(''); //remove canvas from container
+                    $('#canvasDiv').html('<canvas id="canvas"></canvas>');
+
+                    if (shape == "ET") {
+                        size2 = size1;
+                        measurements1 = "height";
+                        measurements2 = "width";
+                    }
+                    $('#canvas').css(measurements1, size1);
+                    $('#canvas').css(measurements2, size2);
+
+                    var canvas = document.getElementById('canvas');
+                    var ctx = canvas.getContext('2d');
+
+                    if (shape == "ST") {
+                        drawEqTriangle(ctx, size3, canvas.width / 2, canvas.height / 2);
+                    }
+                    else {
+                        draw(canvas.width, canvas.height);
+                    }
+
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                NotifyError(errorThrown);
+            }
+        });
+	}
+    function drawEqTriangle(ctx, side, cx, cy) {
+        var h = side * (Math.sqrt(3) / 2);
+        ctx.strokeStyle = "#ff0000";
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.beginPath();
+        ctx.moveTo(0, -h / 2);
+        ctx.lineTo(-side / 2, h / 2);
+        ctx.lineTo(side / 2, h / 2);
+        ctx.lineTo(0, -h / 2);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+        ctx.save();
+    }
+    function draw(width, height) {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            var sWidth = width;
+            var sHeight = height;
+            var path = new Path2D();
+            path.moveTo((sWidth / 2) + 50, sHeight / 2);
+            path.lineTo((sWidth / 2), (sHeight / 2) - 50);
+            path.lineTo((sWidth / 2) - 50, sHeight / 2);
+            ctx.fill(path);
+        }
+    }
+
+</script>
+

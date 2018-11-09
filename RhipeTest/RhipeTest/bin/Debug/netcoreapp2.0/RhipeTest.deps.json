@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "07ac09a001936f38f660bc99ab7c859c8e77ef59"
+    "signature": "0476d28003497bc349174879331e318aff2f7307"
   },
   "compilationOptions": {
     "defines": [
@@ -25,7 +25,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.8",
           "Microsoft.NETCore.App": "2.0.0",
-          "Toaster": "2.1.10716"
+          "toastr": "2.1.1"
         },
         "runtime": {
           "RhipeTest.dll": {}
@@ -34,6 +34,7 @@
           "RhipeTest.dll": {}
         }
       },
+      "jQuery/1.6.3": {},
       "Libuv/1.10.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0"
@@ -3781,22 +3782,11 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
-      "Toaster/2.1.10716": {
+      "toastr/2.1.1": {
         "dependencies": {
-          "ToolBelt": "1.8.11129.1"
-        },
-        "runtime": {
-          "lib/net45/Toast.exe": {},
-          "lib/net45/Toaster.dll": {},
-          "lib/net45/ToolBelt.dll": {}
-        },
-        "compile": {
-          "lib/net45/Toast.exe": {},
-          "lib/net45/Toaster.dll": {},
-          "lib/net45/ToolBelt.dll": {}
+          "jQuery": "1.6.3"
         }
       },
-      "ToolBelt/1.8.11129.1": {},
       "WindowsAzure.Storage/8.1.4": {
         "dependencies": {
           "Microsoft.Data.OData": "5.8.2",
@@ -3994,6 +3984,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "jQuery/1.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ipUzYs/FCnFIzgs7U3H5qBGzLM3Y6pWZI15Z0me1KcQpoR+6OjnViPS8h/fEMHbkr3Rk/jYeZ0/bAwow7EzgFA==",
+      "path": "jquery/1.6.3",
+      "hashPath": "jquery.1.6.3.nupkg.sha512"
     },
     "Libuv/1.10.0": {
       "type": "package",
@@ -5990,19 +5987,12 @@
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
-    "Toaster/2.1.10716": {
+    "toastr/2.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MLsLg7rAR0MxFsoz9kUlhQWN5AklWbbjhDoq6pYoDUmr2sTTq5mBSIM2sm3XH9HEVl9rOUgdF9QiKRNnOB4mSg==",
-      "path": "toaster/2.1.10716",
-      "hashPath": "toaster.2.1.10716.nupkg.sha512"
-    },
-    "ToolBelt/1.8.11129.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZNCvwewgxdTTyy71lUZkKTKjf+j+60zshGZjbMylKwE44fnY50qfydr7b8D56b1M70NfCISbSVfKdsPi1lwF3A==",
-      "path": "toolbelt/1.8.11129.1",
-      "hashPath": "toolbelt.1.8.11129.1.nupkg.sha512"
+      "sha512": "sha512-CquqRfAp9Oc8PVNHo0JPWR0lzJnfs0Sg31d58GhML6ry45Rb2wc1byJQwYoSbnjrTs4znWRB6nuZbzDMRLgfjA==",
+      "path": "toastr/2.1.1",
+      "hashPath": "toastr.2.1.1.nupkg.sha512"
     },
     "WindowsAzure.Storage/8.1.4": {
       "type": "package",

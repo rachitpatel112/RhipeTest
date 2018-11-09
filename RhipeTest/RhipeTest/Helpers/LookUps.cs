@@ -21,22 +21,21 @@ namespace RhipeTest.Helpers
         {
             List<SelectListItem> measurements = new List<SelectListItem>();
             measurements.Add(new SelectListItem { Text = "height", Value = "height" });
-            measurements.Add(new SelectListItem { Text = "base", Value = "base" });
             measurements.Add(new SelectListItem { Text = "side", Value = "side" });
             measurements.Add(new SelectListItem { Text = "width", Value = "width" });
             return measurements;
         }
 
-        public static List<SelectListItem> Amounts()
+        public static List<SelectListItem> Size()
         {
-            List<SelectListItem> amounts = new List<SelectListItem>();
-            amounts.Add(new SelectListItem { Text = "100", Value = "100" });
-            amounts.Add(new SelectListItem { Text = "200", Value = "200" });
-            amounts.Add(new SelectListItem { Text = "300", Value = "300" });
-            amounts.Add(new SelectListItem { Text = "400", Value = "400" });
-            amounts.Add(new SelectListItem { Text = "500", Value = "500" });
-            amounts.Add(new SelectListItem { Text = "600", Value = "600" });
-            return amounts;
+            List<SelectListItem> size = new List<SelectListItem>();
+            size.Add(new SelectListItem { Text = "100", Value = "100" });
+            size.Add(new SelectListItem { Text = "200", Value = "200" });
+            size.Add(new SelectListItem { Text = "300", Value = "300" });
+            size.Add(new SelectListItem { Text = "400", Value = "400" });
+            size.Add(new SelectListItem { Text = "500", Value = "500" });
+            size.Add(new SelectListItem { Text = "600", Value = "600" });
+            return size;
         }
 
        

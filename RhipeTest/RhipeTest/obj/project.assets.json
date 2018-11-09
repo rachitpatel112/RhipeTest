@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "jQuery/1.6.3": {
+        "type": "package"
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -4732,29 +4735,10 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "Toaster/2.1.10716": {
+      "toastr/2.1.1": {
         "type": "package",
         "dependencies": {
-          "ToolBelt": "1.8.0"
-        },
-        "compile": {
-          "lib/net45/Toast.exe": {},
-          "lib/net45/Toaster.dll": {},
-          "lib/net45/ToolBelt.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Toast.exe": {},
-          "lib/net45/Toaster.dll": {},
-          "lib/net45/ToolBelt.dll": {}
-        }
-      },
-      "ToolBelt/1.8.11129.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/ToolBelt.dll": {}
-        },
-        "runtime": {
-          "lib/net45/ToolBelt.dll": {}
+          "jQuery": "1.6.3"
         }
       },
       "WindowsAzure.Storage/8.1.4": {
@@ -4775,6 +4759,22 @@
     }
   },
   "libraries": {
+    "jQuery/1.6.3": {
+      "sha512": "ipUzYs/FCnFIzgs7U3H5qBGzLM3Y6pWZI15Z0me1KcQpoR+6OjnViPS8h/fEMHbkr3Rk/jYeZ0/bAwow7EzgFA==",
+      "type": "package",
+      "path": "jquery/1.6.3",
+      "files": [
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.6.3-vsdoc.js",
+        "Content/Scripts/jquery-1.6.3.js",
+        "Content/Scripts/jquery-1.6.3.min.js",
+        "Tools/install.ps1",
+        "Tools/jquery-1.6.3-vsdoc-para.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.6.3.nupkg.sha512",
+        "jquery.nuspec"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -12657,26 +12657,20 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "Toaster/2.1.10716": {
-      "sha512": "MLsLg7rAR0MxFsoz9kUlhQWN5AklWbbjhDoq6pYoDUmr2sTTq5mBSIM2sm3XH9HEVl9rOUgdF9QiKRNnOB4mSg==",
+    "toastr/2.1.1": {
+      "sha512": "CquqRfAp9Oc8PVNHo0JPWR0lzJnfs0Sg31d58GhML6ry45Rb2wc1byJQwYoSbnjrTs4znWRB6nuZbzDMRLgfjA==",
       "type": "package",
-      "path": "toaster/2.1.10716",
+      "path": "toastr/2.1.1",
       "files": [
-        "lib/net45/Toast.exe",
-        "lib/net45/Toaster.dll",
-        "lib/net45/ToolBelt.dll",
-        "toaster.2.1.10716.nupkg.sha512",
-        "toaster.nuspec"
-      ]
-    },
-    "ToolBelt/1.8.11129.1": {
-      "sha512": "ZNCvwewgxdTTyy71lUZkKTKjf+j+60zshGZjbMylKwE44fnY50qfydr7b8D56b1M70NfCISbSVfKdsPi1lwF3A==",
-      "type": "package",
-      "path": "toolbelt/1.8.11129.1",
-      "files": [
-        "lib/net45/ToolBelt.dll",
-        "toolbelt.1.8.11129.1.nupkg.sha512",
-        "toolbelt.nuspec"
+        ".signature.p7s",
+        "content/content/toastr.css",
+        "content/content/toastr.less",
+        "content/content/toastr.min.css",
+        "content/content/toastr.scss",
+        "content/scripts/toastr.js",
+        "content/scripts/toastr.min.js",
+        "toastr.2.1.1.nupkg.sha512",
+        "toastr.nuspec"
       ]
     },
     "WindowsAzure.Storage/8.1.4": {
@@ -12706,7 +12700,7 @@
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.8",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Toaster >= 2.1.10716"
+      "toastr >= 2.1.1"
     ]
   },
   "packageFolders": {
@@ -12759,9 +12753,9 @@
             "version": "[2.0.0, )",
             "autoReferenced": true
           },
-          "Toaster": {
+          "toastr": {
             "target": "Package",
-            "version": "[2.1.10716, )"
+            "version": "[2.1.1, )"
           }
         },
         "imports": [
@@ -12771,37 +12765,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Toaster 2.1.10716 depends on ToolBelt (>= 1.8.0) but ToolBelt 1.8.0 was not found. An approximate best match of ToolBelt 1.8.11129.1 was resolved.",
-      "libraryId": "ToolBelt",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Toaster 2.1.10716' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Toaster",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'ToolBelt 1.8.11129.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
-      "libraryId": "ToolBelt",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }

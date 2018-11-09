@@ -1,4 +1,4 @@
-﻿// Write your JavaScript code.
+﻿
 NotifySuccess = function (message) {
     Notify(message, 'top-right', '5000', 'success', 'fa-check', true);
 };
@@ -12,10 +12,10 @@ AddAntiForgeryToken = function (data) {
 };
 
 function Notify(message, position, timeout, theme, icon, closable) {
-    Toastr.options.positionClass = 'toast-' + position;
-    Toastr.options.extendedTimeOut = 0; //1000;
-    Toastr.options.timeOut = timeout;
-    Toastr.options.closeButton = closable;
-    Toastr.options.iconClass = icon + ' toast-' + theme;
-    Toastr['custom'](message);
+    toastr.options.positionClass = 'toast-' + position;
+    toastr.options.extendedTimeOut = 0; //1000;
+    toastr.options.timeOut = timeout;
+    toastr.options.closeButton = closable;
+    toastr.options.iconClass = icon + ' toast-' + theme;
+    toastr['custom'](message);
 }
